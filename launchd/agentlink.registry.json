@@ -1,0 +1,11 @@
+{
+  "id": "agentlink",
+  "name": "AgentLink",
+  "description": "Background launcher that polls paired web apps for agent tasks and runs them unattended in Claude Code headless mode, reporting progress and results back over the agentlink contract.",
+  "kind": "launchd-agent",
+  "launchdLabel": "com.stuart-labs.agentlink",
+  "schedule": "always on (KeepAlive); polls every 3 s per paired app",
+  "source": "https://github.com/XxMorganxX/agentlink",
+  "logs": ["~/.config/agentlink/logs/serve.log", "~/.config/agentlink/logs/launchd.log"],
+  "registeredAt": ""
+}

@@ -1,0 +1,24 @@
+# Runs in the public XxMorganxX/agentlink repo (this directory is published there as its root;
+# GitHub ignores a nested .github in the source monorepo). A `v*` tag builds both binaries and
+# releases them with install.sh, which is what `releases/latest/download/install.sh` serves.
+name: release
+
+on:
+  push:
+    tags: ['v*']
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: macos-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v2
+      - run: bash scripts/build.sh
+      - run: cp install.sh dist/install.sh
+      - run: gh release create "$GITHUB_REF_NAME" dist/* --title "agentlink ${GITHUB_REF_NAME#v}" --notes "Install: \`curl -fsSL https://github.com/XxMorganxX/agentlink/releases/latest/download/install.sh | sh\`"
+        env:
+          GH_TOKEN: ${{ github.token }}

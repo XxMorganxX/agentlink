@@ -1,0 +1,23 @@
+{
+  "name": "@outreach-crm/agentlink",
+  "version": "0.2.0",
+  "private": true,
+  "type": "module",
+  "description": "Generic background launcher: pairs with a web app once, polls it for agent tasks, runs each in Claude Code headless and reports back over the agentlink contract (ADR 0009).",
+  "exports": {
+    ".": { "types": "./src/index.ts", "default": "./src/index.ts" },
+    "./protocol": { "types": "./src/protocol.ts", "default": "./src/protocol.ts" }
+  },
+  "scripts": {
+    "agentlink": "tsx src/bin.ts",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "build": "bash scripts/build.sh"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "tsx": "^4.23.0",
+    "typescript": "^5.6.0",
+    "vitest": "^3.0.0"
+  }
+}
