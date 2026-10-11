@@ -1,6 +1,6 @@
 {
   "name": "@outreach-crm/agentlink",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "private": true,
   "type": "module",
   "description": "Generic background launcher: pairs with a web app once, polls it for agent tasks, runs each in Claude Code headless and reports back over the agentlink contract (ADR 0009).",

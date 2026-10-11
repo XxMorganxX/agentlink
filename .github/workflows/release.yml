@@ -19,6 +19,9 @@ jobs:
       - uses: oven-sh/setup-bun@v2
       - run: bash scripts/build.sh
       - run: cp install.sh dist/install.sh
-      - run: gh release create "$GITHUB_REF_NAME" dist/* --title "agentlink ${GITHUB_REF_NAME#v}" --notes "Install: \`curl -fsSL https://github.com/XxMorganxX/agentlink/releases/latest/download/install.sh | sh\`"
+      # A block scalar: the ": " in the notes would end a plain YAML scalar and break the whole file.
+      - run: |
+          gh release create "$GITHUB_REF_NAME" dist/* --title "agentlink ${GITHUB_REF_NAME#v}" \
+            --notes 'Install: `curl -fsSL https://github.com/XxMorganxX/agentlink/releases/latest/download/install.sh | sh`'
         env:
           GH_TOKEN: ${{ github.token }}

@@ -3,7 +3,7 @@ import { join } from 'node:path';
 
 /** Every tunable the launcher has, in one place (spec §3). */
 export const LAUNCHER_NAME = 'agentlink';
-export const LAUNCHER_VERSION = '0.2.0';
+export const LAUNCHER_VERSION = '0.2.1';
 export const PROTOCOL = 'agentlink/1';
 export const LAUNCHD_LABEL = 'com.stuart-labs.agentlink';
 
